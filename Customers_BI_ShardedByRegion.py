@@ -3,8 +3,12 @@ import pymongo
 import random
 
 print('=== CONNECTING TO MONGODB  ===')
-connstr = "mongodb://snarvaez:snarvaez**@ec2-54-202-54-66.us-west-2.compute.amazonaws.com:27017/CustomerSingleView?&replicaSet=rs&authSource=admin"
-client = pymongo.MongoClient(connstr, readPreference='secondary', readPreferenceTags='use:BI')
+connstr = "mongodb://snarvaez:snarvaez**@ec2-54-244-49-101.us-west-2.compute.amazonaws.com:27017/?replicaSet=rs&authSource=admin"
+
+client = pymongo.MongoClient(connstr,
+    readPreference='secondary',
+    readPreferenceTags='use:BI')
+
 db = client.CustomerSingleView
 coll = db.Customers
 
